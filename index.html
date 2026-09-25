@@ -2,30 +2,80 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Узбекское меню</title>
     <style>
-        body {
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #121212;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
-        img {
+
+        html, body {
             width: 100%;
-            max-width: 600px;
+            height: 100%;
+            background-color: #121212;
+            overflow: hidden;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .menu-slider {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .menu-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .page {
+            flex: 0 0 100vw;
+            width: 100vw;
+            height: 100vh;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #121212;
+        }
+
+        .page img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
             height: auto;
-            display: block;
+            object-fit: contain;
+            user-select: none;
+            -webkit-user-drag: none;
         }
     </style>
 </head>
 <body>
-    <img src="photo_1_2026-09-25_10-16-09.jpg" alt="Страница 1">
-    <img src="photo_2_2026-09-25_10-16-09.jpg" alt="Страница 2">
-    <img src="photo_3_2026-09-25_10-16-09.jpg" alt="Страница 3">
-    <img src="photo_4_2026-09-25_10-16-09.jpg" alt="Страница 4">
-    <img src="photo_5_2026-09-25_10-32-04.jpg" alt="Страница 5">
+
+    <div class="menu-slider">
+        <div class="page">
+            <img src="photo_1_2026-09-25_10-16-09.jpg" alt="Страница 1">
+        </div>
+        <div class="page">
+            <img src="photo_2_2026-09-25_10-16-09.jpg" alt="Страница 2">
+        </div>
+        <div class="page">
+            <img src="photo_3_2026-09-25_10-16-09.jpg" alt="Страница 3">
+        </div>
+        <div class="page">
+            <img src="photo_4_2026-09-25_10-16-09.jpg" alt="Страница 4">
+        </div>
+        <div class="page">
+            <img src="photo_5_2026-09-25_10-32-04.jpg" alt="Страница 5">
+        </div>
+    </div>
+
 </body>
 </html>
